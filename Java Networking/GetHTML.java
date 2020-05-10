@@ -9,8 +9,11 @@ public class GetHTML {
         
         try{
         String link = in.readLine();
+        if(link.substring(0,3).equals("www"))
+           { link = "http://" + link;
+            // System.out.println(link);
+        }
         URL url = new URL(link);
-        
         BufferedReader instream = new BufferedReader(new InputStreamReader(url.openStream())); 
         String[] tmp = link.split("\\.");
         System.out.println("\n Fetching content from" + link);
